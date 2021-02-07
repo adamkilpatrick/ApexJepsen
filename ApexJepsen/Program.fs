@@ -36,7 +36,8 @@ let main argv =
                     |> Seq.filter Option.isSome
                     |> Seq.map Option.get
 
-    records |> Seq.map serializeRecord |> ignore
+    records 
+    |> Seq.iter serializeRecord
 
     let locations = records 
                         |> Seq.head
