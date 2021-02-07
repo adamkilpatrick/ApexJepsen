@@ -13,3 +13,6 @@ ATM waiting on some stuff, hopefulyl if you are reading this you know me. Ping m
 - Maps are about to start changing on schedule, need to figure that out for heatmap stuff
 - Deffo need some unit tests
 - Yo I'd kill for some CI/CD
+
+
+## MISC
