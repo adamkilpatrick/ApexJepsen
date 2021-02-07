@@ -16,3 +16,4 @@ ATM waiting on some stuff, hopefulyl if you are reading this you know me. Ping m
 
 
 ## MISC
+- Example log maps to this: https://www.youtube.com/watch?v=dKZBvm81agI
