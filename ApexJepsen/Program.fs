@@ -28,9 +28,7 @@ let main argv =
 
     let lines = File.ReadAllLines filePath
     let records = lines
-                    |> Seq.map (LogParser.produceMatchEventFromLogLine Option.None)
-                    |> Seq.filter Option.isSome
-                    |> Seq.map Option.get
+                    |> LogParser.produceMatchEventSetFromLogLines
                     |> Seq.fold MatchRecordBuilder.stateFolder [||]
                     |> Seq.map (fun n -> match n with MatchRecordBuilder.CompleteMatchRecord m -> Option.Some m | _ -> Option.None)
                     |> Seq.filter Option.isSome
@@ -40,7 +38,7 @@ let main argv =
     |> Seq.iter serializeRecord
 
     let locations = records 
-                        |> Seq.head
+                        |> Seq.last
                         |> (fun n -> n.LocationEvents)
 
     let startTime = locations
