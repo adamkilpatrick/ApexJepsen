@@ -26,7 +26,8 @@
                                     MatchIdentifier: Guid; 
                                     LocalPlayer: string; 
                                     Victory:bool;
-                                    StartTime: DateTime}
+                                    StartTime: DateTime;
+                                    MapType:MapEvaluator.MapType}
     type CompleteMatchRecord = {LocationEvents:LocationEvent[]; 
                                 KillFeedEvents:KillFeedEvent[];
                                 WeaponInUseEvents:WeaponInUseEvent[];
@@ -35,7 +36,8 @@
                                 MatchIdentifier:Guid; 
                                 LocalPlayer:string; 
                                 Victory:bool;
-                                StartTime: DateTime; 
+                                StartTime: DateTime;
+                                MapType:MapEvaluator.MapType;
                                 EndTime: DateTime}
     type AddMatchEventOutput = InProgressMatchRecord of InProgressMatchRecord 
                                 | CompleteMatchRecord of CompleteMatchRecord
@@ -55,6 +57,7 @@
                                 LocalPlayer=inProgressMatchRecord.LocalPlayer;
                                 Victory=inProgressMatchRecord.Victory;
                                 StartTime=inProgressMatchRecord.StartTime;
+                                MapType=inProgressMatchRecord.MapType;
                                 EndTime=t}
             | LocationEvent l -> InProgressMatchRecord { inProgressMatchRecord with LocationEvents= (Array.append inProgressMatchRecord.LocationEvents (Array.singleton l)) }
             | KillFeedEvent k -> InProgressMatchRecord { inProgressMatchRecord with KillFeedEvents=(Array.append inProgressMatchRecord.KillFeedEvents (Array.singleton k))}
@@ -74,7 +77,8 @@
                                                         MatchIdentifier=m.MatchIdentifier;
                                                         LocalPlayer=m.LocalPlayer;
                                                         Victory=false;
-                                                        StartTime=m.TimeStamp
+                                                        StartTime=m.TimeStamp;
+                                                        MapType=MapEvaluator.getMapFromTime m.TimeStamp
                                                         }
             | _ -> raise (new ArgumentException("Expected a match start event"))
 

@@ -12,12 +12,11 @@
     <Content Include="kcmap.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Compile Include="MapEvaluator.fs" />
     <Compile Include="MatchRecordBuilder.fs" />
     <Compile Include="LogParser.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
-
-  <ItemGroup />
 
   <ItemGroup>
     <PackageReference Include="Fsharp.Data" Version="3.3.3" />
