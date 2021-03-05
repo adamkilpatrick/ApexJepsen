@@ -14,6 +14,8 @@
             (MapType.Olympus,90);
             (MapType.KingsCanyon,60);
             (MapType.Olympus,60);
+            (MapType.KingsCanyon,60);
+            (MapType.Olympus,60);
             (MapType.KingsCanyon,120);
             (MapType.Olympus,120);
             (MapType.KingsCanyon,90);
