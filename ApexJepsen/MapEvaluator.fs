@@ -34,7 +34,7 @@
             (MapType.Olympus,120);
         |]
         let fullCycleTime = cyclePattern |> Array.sumBy (fun (_,n) -> n)
-        let cycleStartDate = new DateTime(2021,2,2,4,0,0)
+        let cycleStartDate = new DateTime(2021,1,5,13,0,0)
 
         let currentCycleStart = (time - cycleStartDate).TotalMinutes
                                     |> (fun n -> int(n)/fullCycleTime)
@@ -47,7 +47,7 @@
                         |> Array.scan (fun state (m,n) -> n+state) 0
 
         let cycleLandPoint = cycleSums
-                                |> Array.takeWhile (fun n -> n < currentCycleOffset)
+                                |> Array.takeWhile (fun n -> n <= currentCycleOffset)
                                 |> Array.length
                                 |> (fun n -> n-1)
 
